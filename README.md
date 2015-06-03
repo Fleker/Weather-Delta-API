@@ -1,7 +1,7 @@
 # Weather-Delta-API
 Simple weather API for Android
 
-This class is meant to be a simple way for Android apps to interact with Weather Delta for the sake of
+This class is meant to be a simple way for Android apps to interact with <a href="https://play.google.com/store/apps/details?id=com.felkertech.n.weatherdelta">Weather Delta</a> for the sake of
 getting simple weather data in their app without having to program any complex code.
 
 ## Pros

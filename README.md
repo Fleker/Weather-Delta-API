@@ -26,26 +26,31 @@ data from the mobile app)
 * Users will need to have Weather Delta installed on their device in order for this API to work.
 Use `isAppInstalled` to check whether these APIs can be used.
 
+## See Examples
+The app <a href="https://github.com/Fleker/TrendingTimeForAndroidWear">Trending Time for Android Wear</a> has been forked, and turned into a daydream that shows trending topics. It uses Weather Delta's API to display the current temperature's summary.
+
+If you use the Weather Delta API in your project, let me know with an issue and it can get added here.
+
 ## Usage
 First, add WeatherBroadcasterUtils.java to your app. This will take care of a lot of boilerplate code automatically, giving you simple methods to call.
 
 You will need to create add an intent filter in your manifest to receive weather messages:
 
-    <service
+    <receiver
           android:name=".services.WeatherReceiver"
           android:enabled="true"
           android:exported="true" >
           <intent-filter>
               <action android:name="com.felkertech.n.weatherdelta.CURRENT_WEATHER"/>
           </intent-filter>
-      </service>
+      </receiver>
 
-This service will catch any calls from Weather Delta whenever the weather is refreshed by the user.
+This `BroadcastReceiver` will catch any calls from Weather Delta whenever the weather is refreshed by the user.
 
 ### Request Most Recent Data
 To manually request weather data:
 
-    startService(WeatherBroadcasterUtils.getWeatherRequest());
+    startService(WeatherBroadcasterUtils.getWeatherRequest(mContext));
 
 This will tell Weather Delta to send out a new broadcast. 
 
